@@ -9,7 +9,7 @@ use App\Repository\ContinentRepository;
 class ContinentController extends AbstractController
 {
     /**
-     * @Route("/{nom}", name="affichage_continent")
+     * @Route("/continent/{nom}", name="affichage_continent")
      */
     public function affichageRecettesAsie(ContinentRepository $cr, $nom)
     { 

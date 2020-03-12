@@ -9,11 +9,15 @@
         <div class="card" style="width: 18rem;">
             <img src="{{recette.photo}}" class="card-img-top" alt="...">
             <div class="card-body">
-                <p>{{recette.ingredients}}</p>
+                <p>{{recette.ingredients|raw}}</p>
                 <br>
-                <a href="{{ path("ingredient_cle", {nom: recette.ingredientCle.nom}) }}">{{recette.ingredientCle is defined ? recette.ingredientCle.nom : " Coucou " }}</a>
+
+                {% if recette.ingredientCle.nom is defined %}
+                <a href="{{ path("ingredient_cle", {nom: recette.ingredientCle.nom}) }}">{{recette.ingredientCle.nom}}</a>
+                {% endif %}
+
                 <br>
-                <p>{{recette.description}}</p>
+                <p>{{recette.description|raw}}</p>
 
             </div>
         </div>
