@@ -36,7 +36,7 @@ class IngredientCle
     /**
      * @ORM\Column(type="text")
      */
-    private $partenaire_description;
+    private $partenaireDescription;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Recette", mappedBy="ingredientCle")
@@ -91,12 +91,12 @@ class IngredientCle
 
     public function getPartenaireDescription(): ?string
     {
-        return $this->partenaire_description;
+        return $this->partenaireDescription;
     }
 
-    public function setPartenaireDescription(string $partenaire_description): self
+    public function setPartenaireDescription(string $partenaireDescription): self
     {
-        $this->partenaire_description = $partenaire_description;
+        $this->partenaireDescription = $partenaireDescription;
 
         return $this;
     }

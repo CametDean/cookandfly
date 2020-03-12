@@ -10,7 +10,11 @@
             <img src="{{recette.photo}}" class="card-img-top" alt="...">
             <div class="card-body">
                 <p>{{recette.ingredients}}</p>
+                <br>
+                <a href="{{ path("ingredient_cle", {nom: recette.ingredientCle.nom}) }}">{{recette.ingredientCle is defined ? recette.ingredientCle.nom : " Coucou " }}</a>
+                <br>
                 <p>{{recette.description}}</p>
+
             </div>
         </div>
     
