@@ -16,4 +16,5 @@ class RecetteController extends AbstractController
         $recette = $rr->findOneBy(["nom" => $nom]);
         return $this->render('recette/index.html.twig', compact("recette"));
     }
+    
 }

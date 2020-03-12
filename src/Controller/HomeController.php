@@ -17,5 +17,13 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig', compact("continents"));
     }
 
+    /**
+     * @Route("/communaute", name="communaute")
+     */
+    public function communaute()
+    { 
+        return $this->render('home/communaute.html.twig');
+    }
+
     
 }
