@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello {{continent.nom}}{% endblock %}
+
+{% block body %}
+<h1>PAGE {{continent.nom}}</h1>
+{% for recette in continent.recettes %}
+    <h2>{{recette.nom}}</h2>
+    <img src="{{recette.photo}}">
+{% endfor %}
+{% endblock %}

@@ -33,6 +33,11 @@ class Continent
      */
     private $recettes;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $photo;
+
     public function __construct()
     {
         $this->recettes = new ArrayCollection();
@@ -94,6 +99,18 @@ class Continent
                 $recette->setContinent(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(string $photo): self
+    {
+        $this->photo = $photo;
 
         return $this;
     }
