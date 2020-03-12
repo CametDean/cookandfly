@@ -36,6 +36,22 @@ class ContinentRepository extends ServiceEntityRepository
     }
     */
 
+    // /**
+    //  * @return Continent[] Returns an array of Continent objects
+    //  */
+    
+    public function findByName($value)
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.nom = :val')
+            ->setParameter('val', $value)
+            ->orderBy('c.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    
+
     /*
     public function findOneBySomeField($value): ?Continent
     {
