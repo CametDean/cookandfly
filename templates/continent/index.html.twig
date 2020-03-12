@@ -10,7 +10,7 @@
             <img src="{{recette.photo}}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">{{recette.nom}}</h5>
-                <a href="#" class="btn btn-primary">En savoir plus</a>
+                <a href="{{ path("affichage_recette", {nom: recette.nom}) }}" class="btn btn-primary">En savoir plus</a>
             </div>
         </div>
     {% endfor %}

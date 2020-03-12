@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{recette.nom}}{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1>{{recette.nom}}</h1>
+    
+        <div class="card" style="width: 18rem;">
+            <img src="{{recette.photo}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <p>{{recette.ingredients}}</p>
+                <p>{{recette.description}}</p>
+            </div>
+        </div>
+    
+</div>
+{% endblock %}
