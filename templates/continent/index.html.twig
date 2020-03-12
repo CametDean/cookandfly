@@ -3,9 +3,16 @@
 {% block title %}Hello {{continent.nom}}{% endblock %}
 
 {% block body %}
-<h1>PAGE {{continent.nom}}</h1>
-{% for recette in continent.recettes %}
-    <h2>{{recette.nom}}</h2>
-    <img src="{{recette.photo}}">
-{% endfor %}
+<div class="content">
+    <h1>PAGE {{continent.nom}}</h1>
+    {% for recette in continent.recettes %}
+        <div class="card" style="width: 18rem;">
+            <img src="{{recette.photo}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{recette.nom}}</h5>
+                <a href="#" class="btn btn-primary">En savoir plus</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
 {% endblock %}

@@ -9,11 +9,11 @@ use App\Repository\ContinentRepository;
 class ContinentController extends AbstractController
 {
     /**
-     * @Route("/{id}", name="affichage_continent")
+     * @Route("/{nom}", name="affichage_continent")
      */
-    public function affichageRecettesAsie(ContinentRepository $cr, $id)
+    public function affichageRecettesAsie(ContinentRepository $cr, $nom)
     { 
-        $continent = $cr->find($id);
+        $continent = $cr->findOneBy(["nom" => $nom]);
         return $this->render('continent/index.html.twig', compact("continent"));
     }
 }
