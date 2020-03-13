@@ -15,10 +15,16 @@
             <h1>{{recette.nom}}</h1>
             <img src="{{dossier_images ~ recette.photo}}" class="photo_recette" alt="...">
         </div>
-            <p>{{recette.ingredients|raw}}
-            {% if recette.ingredientCle.nom is defined %}
-            <a href="{{ path("ingredient_cle", {nom: recette.ingredientCle.nom}) }}">{{recette.ingredientCle.nom}}</a>
-            {% endif %}
+            <p>
+              <ul>
+                    {% set ingredients = recette.ingredients|split(";") %}
+                    {% for ingredient in ingredients %}
+                    <li>{{ingredient}}</li>
+                    {% endfor %}
+                </ul>
+              {% if recette.ingredientCle.nom is defined %}
+              <a href="{{ path("ingredient_cle", {nom: recette.ingredientCle.nom}) }}">{{recette.ingredientCle.nom}}</a>
+              {% endif %}
             </p> <br>
             
             <br>
