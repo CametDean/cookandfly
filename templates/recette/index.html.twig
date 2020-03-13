@@ -3,12 +3,6 @@
 {% block title %}{{recette.nom}}{% endblock %}
 
 {% block body %}
- <link rel="stylesheet"  href="css/style.css">
-        <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Indie+Flower&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Crafty+Girls&display=swap" rel="stylesheet">
-        <meta charset="utf-8">
-        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 <div class="content">
     <div class="imageFond">
         <div class="titre">
@@ -16,12 +10,11 @@
             <img src="{{dossier_images ~ recette.photo}}" class="photo_recette" alt="...">
         </div>
             <p>
-              <ul>
+
                     {% set ingredients = recette.ingredients|split(";") %}
                     {% for ingredient in ingredients %}
-                    <li>{{ingredient}}</li>
+                    {{ingredient}}
                     {% endfor %}
-                </ul>
               {% if recette.ingredientCle.nom is defined %}
               <a href="{{ path("ingredient_cle", {nom: recette.ingredientCle.nom}) }}">{{recette.ingredientCle.nom}}</a>
               {% endif %}
