@@ -3,16 +3,18 @@
 {% block title %}Hello {{ingredientCle.nom}}{% endblock %}
 
 {% block body %}
-<div class="content">
-    <h1>{{ingredientCle.nom}}</h1>
+<div class="imageFond">
+    <h2>{{ingredientCle.nom}}</h2>
     <img src="">
     <p>{{ingredientCle.description}}</p>
     <br>
-    <h2>Notre Partenaire</h2>
-    <p>{{ingredientCle.partenaire}}</p>
-    <p>{{ingredientCle.partenaireDescription|raw}}</p>
+    
+    <p>Notre Partenaire :<br><br>{{ingredientCle.partenaire}}</p>
+    <p>{{ingredientCle.partenaireDescription|raw}}<br><br>
+    <button type="button" class="btn btn-secondary"><a href="">Commander</a></button>
+    </p>
     <br>
-    <a href="">Commander</a>
+   
    
 
 </div>

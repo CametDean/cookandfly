@@ -1,19 +1,21 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<h1>La communauté Cookin'Trip</h1>
+    <div class="imageFond">
+        <div class="container">
+        <h2>La communauté Cookin'Trip</h2>
 
-<p>Composée que de gens passionnés, cette communauté a pour but de partager des recettes de tous les continents, recettes qui ont marqué leurs esprits et leurs papilles gustatives !</p>
+        <p>Composée que de gens passionnés, cette communauté a pour but de partager des recettes de tous les continents, recettes qui ont marqué leurs esprits et leurs papilles gustatives !<br><br>
 
-<h2>Tes missions en tant que membre</h2>
+        <strong>Tes missions en tant que membre :</strong><br><br>
 
-<p>Une fois ton inscription validée, tu auras la possibilité de : </p>
-<ul>
-    <li>Ajouter tes propres recettes qui seront par la suite validées par l'administrateur</li>
-    <li>Commenter les recettes publiées afin de partager ton expérience et tes petites astuces</li>
-    <li>Contacter directement l'administrateur afin de participer à l'amélioration du site</li>
-</ul>
+        Une fois ton inscription validée, tu auras la possibilité de :<br><br>
+        
+        - Ajouter tes propres recettes qui seront par la suite validées par l'administrateur<br><br>
+        - Commenter les recettes publiées afin de partager ton expérience et tes petites astuces<br><br>
+        - Contacter directement l'administrateur afin de participer à l'amélioration du site<br><br>
 
-<p>Alors, rejoins nous en cliquant <a href="{{ path('app_register') }}">ICI</a></p>
-
+        Alors, rejoins nous en cliquant <button type="button" class="btn btn-secondary"><a href="{{ path('app_register') }}">ICI</a></button></p>
+        </div>
+    </div>
 {% endblock %}
