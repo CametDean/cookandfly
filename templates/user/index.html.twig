@@ -3,9 +3,11 @@
 {% block title %}Hello {{app.user.username}}!{% endblock %}
 
 {% block body %}
-<ul>
-    <li><a href="{{ path('user_update') }}">Modifier informations</a></li>
-    <li><a href="{{ path('user_recette_add') }}">Ajouter recette</a></li>
-    <li><a href="">Contacter admin</a></li>
-</ul>
+    <div class="imageFond">
+        <ul>
+            <li><a href="{{ path('user_update') }}">Modifier informations</a></li>
+            <li><a href="{{ path('user_recette_add') }}">Ajouter recette</a></li>
+            <li><a href="">Contacter admin</a></li>
+        </ul>
+    </div>
 {% endblock %}
