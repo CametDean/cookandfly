@@ -70,7 +70,7 @@ class UserController extends AbstractController
                     $newName = str_replace(" ", "_", $newName);
                     $newName .= "-" . uniqid() . "." . $photoTelechargee->getExtension();
                     $photoTelechargee->move($destination, $newName);
-
+                    //dd($nomPhoto, $newName);
                     $nouvelleRecette->setPhoto($newName);
                     $em->persist($nouvelleRecette);
                     $em->flush();
