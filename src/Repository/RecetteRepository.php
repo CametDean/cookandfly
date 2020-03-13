@@ -36,15 +36,31 @@ class RecetteRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?Recette
+    // /**
+    //  * @return Recette[] Returns an array of Recette objects
+    //  */
+    
+    public function findByName($value)
     {
         return $this->createQueryBuilder('r')
-            ->andWhere('r.exampleField = :val')
-            ->setParameter('val', $value)
+            ->andWhere('r.nom LIKE :val')
+            ->setParameter('val', "%".$value."%")
+            ->orderBy('r.nom', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    
+
+    
+    /* public function findOneByName($value): ?Recette
+    {
+        return $this->createQueryBuilder('r')
+            ->andWhere('r.nom LIKE :val')
+            ->setParameter('val', "%".$value."%")
             ->getQuery()
             ->getOneOrNullResult()
         ;
-    }
-    */
+    } */
+    
 }
