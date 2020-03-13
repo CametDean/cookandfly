@@ -51,12 +51,12 @@ table {
 }
 
 //-------------- CSS PERSO ---------------------------
-*{
+/* *{
     margin: 0;
     padding: 0;
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
-}
+} */
 
 body{
     background-color: #333;
@@ -119,8 +119,40 @@ body{
 
 
 //-------------- RECETTES ----------------
+.titre{
+	display:flex;
+	padding-top: 70px;
+	padding-left: 250px;
+	font-size: large;
+}
+.imageFond{
+    background: url(../../public/img/bois.jpg) no-repeat;
+    background: cover;
+    min-height: 100vh;
+    min-width: 100vh;
+}
+.imageFond h1{
+    width: 75%;
+    padding:20px;
+    font-size: 500%;
+	border-radius:10px;
+	font-family: 'Dancing Script', cursive;
+	text-shadow: dimgray;
+}
 
-.content{
-    background: #fff;
-    min-height: 88vh;
+.imageFond p{
+    width: 75%;
+    margin:50px auto auto auto;
+    background:rgba(255,255,255,0.6);
+    padding:20px;
+    font-size: 120%;
+	border-radius:10px;
+	font-family: 'Crafty Girls', cursive;
+}
+.photo_recette{
+    display: flex;
+    margin-left:auto;
+    margin-right: 250px;
+	width: 500px;
+	border-radius: 10px;
 }
