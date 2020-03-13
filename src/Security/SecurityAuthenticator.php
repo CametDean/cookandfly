@@ -96,9 +96,9 @@ class SecurityAuthenticator extends AbstractFormLoginAuthenticator implements Pa
         }
 
         if ($this->security->isGranted("ROLE_ADMIN")){
-            return new RedirectResponse($this->urlGenerator->generate('app_re'));
+            return new RedirectResponse($this->urlGenerator->generate('admin'));
         }else{
-            return new RedirectResponse($this->urlGenerator->generate('app_re'));
+            return new RedirectResponse($this->urlGenerator->generate('user'));
         }
         
         //throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);

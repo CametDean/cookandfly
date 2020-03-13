@@ -20,19 +20,53 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path("communaute") }}">Rejoignez la Communauté</a>
                 </li>
+
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path("app_register") }}">Inscription</a>
+                    {% if not is_granted("IS_AUTHENTICATED_FULLY") %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path("app_register") }}">Inscription</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path("app_login") }}">Connexion</a>
+                    </li>
+                    {% endif %}
+
+                    {% if is_granted("IS_AUTHENTICATED_FULLY") %}
+                    <a class="nav-link" href="{{ path("app_logout") }}">Déconnexion</a>
+                        {% if is_granted("ROLE_ADMIN") %}
+                            <li class="nav-item active">
+                                <a class="nav-link" href="">Liste des abonnés</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="">Liste des recettes</a>
+                            </li>
+                            {% else %}
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{{ path("user") }}">Espace Abonné</a>
+                            </li>
+                            {% endif %}
+                    {% endif %}
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="color: pink" href="{{ path("app_login") }}">Connexion</a>
-                </li>
+
+
+
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <form class="form-inline my-2 my-lg-0" method="POST" action="">
+                <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>
     </nav>
+
+    {% for type, messages in app.flashes %}
+    <div class="bg-{{ type }}">
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+    </div>
+    {% endfor %}
+
+
     {% block body %}
 
     {% endblock %}
