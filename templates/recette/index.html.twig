@@ -3,24 +3,27 @@
 {% block title %}{{recette.nom}}{% endblock %}
 
 {% block body %}
+ <link rel="stylesheet"  href="css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Indie+Flower&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Crafty+Girls&display=swap" rel="stylesheet">
+        <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 <div class="content">
-    <h1>{{recette.nom}}</h1>
-    
-        <div class="card" style="width: 18rem;">
-            <img src="{{dossier_images ~ recette.photo}}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <p>{{recette.ingredients|raw}}</p>
-                <br>
-
-                {% if recette.ingredientCle.nom is defined %}
-                <a href="{{ path("ingredient_cle", {nom: recette.ingredientCle.nom}) }}">{{recette.ingredientCle.nom}}</a>
-                {% endif %}
-
-                <br>
-                <p>{{recette.description|raw}}</p>
-
-            </div>
+    <div class="imageFond">
+        <div class="titre">
+            <h1>{{recette.nom}}</h1>
+            <img src="{{dossier_images ~ recette.photo}}" class="photo_recette" alt="...">
         </div>
-    
+            <p>{{recette.ingredients|raw}}
+            {% if recette.ingredientCle.nom is defined %}
+            <a href="{{ path("ingredient_cle", {nom: recette.ingredientCle.nom}) }}">{{recette.ingredientCle.nom}}</a>
+            {% endif %}
+            </p> <br>
+            
+            <br>
+            <p>{{recette.description|raw}}</p>
+
+    </div>
 </div>
 {% endblock %}
