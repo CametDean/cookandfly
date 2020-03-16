@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Form\UserType;
 use App\Form\RecetteType;
 use App\Entity\Recette;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class UserController extends AbstractController
 {
@@ -54,6 +55,7 @@ class UserController extends AbstractController
      */
     public function add(Request $rq, EMI $em)
     {
+        $bouton = "add";
         $formRecette = $this->createForm(RecetteType::class);
         $formRecette->handleRequest($rq);
 
@@ -84,6 +86,34 @@ class UserController extends AbstractController
 
         $formRecette = $formRecette->createView();
         
-        return $this->render('recette/formulaire.html.twig', compact("formRecette"));
+        return $this->render('recette/formulaire.html.twig', compact("formRecette", "bouton"));
+    }
+
+    //------- GESTION USERS ------
+
+    /**
+     * @Route("/admin/user/liste", name="user_list")
+     */
+    public function listeUser(UserRepository $ur)
+    {
+        $users = $ur->findAll();
+        return $this->render('user/liste.html.twig', compact("users"));
+    }
+
+    /**
+     * @Route("/admin/user/supprimer/{id}", name="user_delete")
+     * @IsGranted("ROLE_ADMIN")
+     */
+    public function delete(UserRepository $ar, Request $request,EMI $em, int $id)
+    {
+        $userAsupprimer = $ar->find($id);
+        
+        if ($request->isMethod("POST")){
+            $em->remove($userAsupprimer);
+            $em->flush();
+            return $this->redirectToRoute("user_list");
+        }
+        return $this->render('user/formDelete.html.twig', ["user" => $userAsupprimer]);
+
     }
 }

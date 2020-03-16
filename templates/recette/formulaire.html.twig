@@ -1,8 +1,38 @@
-{% extends "base.html.twig" %}
+{% extends 'base.html.twig' %}
+
+{% block title %}Recettes{% endblock %}
 
 {% block body %}
+<div class="imageFond">
+    <div class="container">
+        {% if bouton == "add" %}
+        <h2>Ajouter une recette</h2>
+        {% elseif bouton == "update" %}
+        <h2>Modifier une recette</h2>
+        {% elseif bouton == "delete" %}
+        <h2>Supprimer une recette</h2>
+        {% endif %}
 
-    {{ form(formRecette) }}
+        {{ form_start(formRecette) }}
+            {{ form_row(formRecette.nom, {attr: {disabled: bouton == "delete"}}) }}
+            {{ form_row(formRecette.ingredients, {attr: {disabled: bouton == "delete"}}) }}
+            {{ form_row(formRecette.ingredientCle, {attr: {disabled: bouton == "delete"}}) }}
+            {{ form_row(formRecette.description, {attr: {disabled: bouton == "delete"}}) }}
 
+            {{ form_row(formRecette.photo, {attr: {disabled: bouton == "delete"}}) }}
+            
+            {{ form_row(formRecette.pays, {attr: {disabled: bouton == "delete"}}) }}
+            {{ form_row(formRecette.continent, {attr: {disabled: bouton == "delete"}}) }}
 
+            {% if bouton == "add" %}
+            <button type="submit" class="btn btn-success">Ajouter</button>
+            {% elseif bouton == "update" %}
+            <button type="submit" class="btn btn-secondary">Modifier</button>
+            {% elseif bouton == "delete" %}
+            <button type="submit" class="btn btn-danger">Supprimer</button>
+            {% endif %}
+
+        {{ form_end(formRecette) }}
+    </div>
+</div>
 {% endblock %}

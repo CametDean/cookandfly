@@ -35,7 +35,6 @@ class RecetteType extends AbstractType
                     return $continent->getNom();
                 }
             ])
-            ->add('Ajouter une recette', Type\SubmitType::class)
         ;
     }
 

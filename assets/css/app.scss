@@ -1,5 +1,6 @@
 @import "~bootstrap/scss/bootstrap.scss";
 @import url('https://fonts.googleapis.com/css?family=Crafty+Girls|Dancing+Script|Indie+Flower|Roboto|Special+Elite&display=swap');
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
 
 //-------------- RESET CSS ---------------------------
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -200,4 +201,8 @@ body{
 a{
     text-decoration: none;
     color: black;
+}
+
+.hide{
+    display: none;
 }
