@@ -1,8 +1,27 @@
-{% extends "base.html.twig" %}
+{% extends 'base.html.twig' %}
+
+{% block title %}Recettes{% endblock %}
 
 {% block body %}
+<div class="imageFond">
+    <div class="container">
+        {% if bouton == "update" %}
+        <h2>Modifier mes informations</h2>
+        {% elseif bouton == "delete" %}
+        <h2>Supprimer un abonné</h2>
+        {% endif %}
 
-    {{ form(formUser) }}
+        {{ form_start(formUser) }}
+            {{ form_row(formUser.username, {attr: {disabled: bouton == "delete"}}) }}
+            {{ form_row(formUser.plainPassword, {attr: {disabled: bouton == "delete"}}) }}
+            
+            {% if bouton == "update" %}
+            <button type="submit" class="btn btn-secondary">Modifier</button>
+            {% elseif bouton == "delete" %}
+            <button type="submit" class="btn btn-danger">Supprimer</button>
+            {% endif %}
 
-
+        {{ form_end(formUser) }}
+    </div>
+</div>
 {% endblock %}

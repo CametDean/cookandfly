@@ -33,7 +33,6 @@ class UserType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('Modifier', Type\SubmitType::class)
         ;
     }
 

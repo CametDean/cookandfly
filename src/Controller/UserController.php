@@ -30,10 +30,12 @@ class UserController extends AbstractController
      */
     public function update(Request $request, EMI $em)
     {
+        $bouton = "update";
         $userAmodifier = $this->getUser();
 
         $formUser = $this->createForm(UserType::class, $userAmodifier);
         $formUser->handleRequest($request);
+
         if($formUser->isSubmitted()){
             if($formUser->isValid()){
                 $em->persist($userAmodifier);
@@ -46,8 +48,7 @@ class UserController extends AbstractController
         }
 
         $formUser = $formUser->createView();
-        
-        return $this->render('user/formulaire.html.twig', compact("formUser"));
+        return $this->render('user/formulaire.html.twig', compact("formUser", "bouton"));
     }
 
     /**
@@ -106,14 +107,18 @@ class UserController extends AbstractController
      */
     public function delete(UserRepository $ar, Request $request,EMI $em, int $id)
     {
+        $bouton = "delete";
         $userAsupprimer = $ar->find($id);
-        
+
+        $formUser = $this->createForm(UserType::class, $userAsupprimer);
+
         if ($request->isMethod("POST")){
             $em->remove($userAsupprimer);
             $em->flush();
             return $this->redirectToRoute("user_list");
         }
-        return $this->render('user/formDelete.html.twig', ["user" => $userAsupprimer]);
+        $formUser = $formUser->createView();
+        return $this->render('user/formulaire.html.twig', compact("formUser", "bouton"));
 
     }
 }
