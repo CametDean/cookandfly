@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Recette</th>
+            <th scope="col" colspan=2 >Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for recette in recettes %}
+        <tr>
+            <th scope="row">{{ recette.id }}</th>
+            <td>{{ recette.nom }}</td>
+            <td>
+                <a href="{{ path("recipe_update", { id: recette.id }) }}">
+                    <i class="fa fa-pen"></i>
+                </a>
+            </td>
+            <td>
+                <a href="{{ path("recipe_delete", { id: recette.id }) }}">
+                    <i class="fa fa-trash"></i>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
