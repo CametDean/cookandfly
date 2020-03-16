@@ -23,7 +23,6 @@ final class Version20200313122130 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
         $this->addSql('ALTER TABLE commentaire CHANGE recette_id recette_id INT DEFAULT NULL, CHANGE abonne_id abonne_id INT DEFAULT NULL');
-        $this->addSql('ALTER TABLE continent ADD photo VARCHAR(255) NOT NULL');
         $this->addSql('ALTER TABLE recette CHANGE ingredient_cle_id ingredient_cle_id INT DEFAULT NULL');
         $this->addSql('ALTER TABLE user CHANGE roles roles JSON NOT NULL');
     }
@@ -34,7 +33,6 @@ final class Version20200313122130 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
         $this->addSql('ALTER TABLE commentaire CHANGE recette_id recette_id INT DEFAULT NULL, CHANGE abonne_id abonne_id INT DEFAULT NULL');
-        $this->addSql('ALTER TABLE continent DROP photo');
         $this->addSql('ALTER TABLE recette CHANGE ingredient_cle_id ingredient_cle_id INT DEFAULT NULL');
         $this->addSql('ALTER TABLE user CHANGE roles roles LONGTEXT CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_bin`');
     }
