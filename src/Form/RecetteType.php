@@ -21,6 +21,8 @@ class RecetteType extends AbstractType
             ->add('nom')
             ->add('ingredients')
             ->add('ingredientCle', EntityType::class, [
+                'placeholder' => "Choisissez un ingrédient clé",
+                'required' => false,
                 'class' => IngredientCle::class,
                 "choice_label" => function(IngredientCle $ingredientCle){
                     return $ingredientCle->getNom();
