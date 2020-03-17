@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+<div class="imageFond">
+    <div class="container">
+        <h2>Envoyer un message à l'administrateur</h2>
+
+        {# Formulaire de contact dans lequel l'abonné rentre son nom, prénom, email, objet du message et le message #}
+
+        {# Il faut créer un formType qui sera lié à l'entité Message, puis ajouter une fonction d'insert dans le controller User avec une route pour le formulaire de contact #}
+
+        {# On garde cette structure pour le formulaire #}
+        {# {{ form_start(formContact) }}
+            {{ form_row(formContact.name) }}
+            {{ form_row(formContact.lastname) }}
+            {{ form_row(formContact.email) }}
+            {{ form_row(formContact.object) }}
+            {{ form_row(formContact.message) }}
+            
+            <button type="submit" class="btn btn-success">Envoyer le message</button>
+
+        {{ form_end(formContact) }} #}
+    </div>
+</div>
+{% endblock %}

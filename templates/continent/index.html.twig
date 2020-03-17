@@ -1,6 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello {{continent.nom}}{% endblock %}
+{% block title %}
+    {% if continent is defined %}
+        Hello {{continent.nom}}
+    {% else %}
+        Recettes
+    {% endif %}
+{% endblock %}
+
+
 
 {% block body %}
 
