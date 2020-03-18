@@ -123,8 +123,8 @@ body{
 //-------------- RECETTES ----------------
 .titre{
 	display:flex;
-	padding-top: 70px;
-	padding-left: 250px;
+	padding-top: 10vh;
+	padding-left: 18vh;
 	font-size: large;
 }
 .imageFond{
@@ -135,28 +135,28 @@ body{
 }
 .imageFond h2{
     width: 75%;
-    padding:20px;
-    font-size: 500%;
-	border-radius:10px;
+    padding:7vh;
+    font-size: 12vh;
+	border-radius:2vh;
 	font-family: 'Dancing Script', cursive;
 	text-shadow: dimgray;
 }
 
 .imageFond p{
     width: 75%;
-    margin:50px auto auto auto;
+    margin:2vh auto auto auto;
     background:rgba(255,255,255,0.6);
-    padding:20px;
+    padding:2vh;
     font-size: 120%;
-	border-radius:10px;
+	border-radius:2vh;
 	font-family: 'Crafty Girls', cursive;
 }
 .photo_recette{
     display: flex;
     margin-left:auto;
-    margin-right: 250px;
-	width: 500px;
-	border-radius: 10px;
+    margin-right: 45vh;
+	max-width: 75vh;
+	border-radius: 2vh;
 }
 //-------------- CONTINENT ----------------
 
@@ -167,32 +167,32 @@ body{
     display: flex;
 }
 .content h1{
-    font-size: 100px;
+    font-size: 12vh;
     font-family: 'Special Elite', cursive;
-    margin-top: 5px;
+    margin-top: 5vh;
 }
 .card_recette{
-    margin-top: 150px;
+    margin-top: 29vh;
     max-width: 30vh;
 }
 .card_body{
-    max-width: 25vh;
+    max-width: 10vh;
 }
 .card-img-top{
-    border-radius: 10px;
+    border-radius: 2vh;
 }
 .card-title{
-    font-size: 27px;
+    font-size: 5vh;
 }
 //-------------- INGREDIENT CLE ----------------
 
-.imageFond h3{
+.imageFond p{
     width: 75%;
-    margin:50px auto auto auto;
+    margin:2vh auto auto auto;
     background:rgba(255,255,255,0.6);
-    padding:20px;
+    padding:5vh;
     font-size: 120%;
-	border-radius:10px;
+	border-radius:2vh;
 	font-family: 'Crafty Girls', cursive;
 }
 .button{
@@ -200,7 +200,7 @@ body{
 }
 a{
     text-decoration: none;
-    color: black;
+    color: rgb(224, 24, 24);
 }
 
 .hide{
