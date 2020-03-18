@@ -2,10 +2,39 @@
 
 {% block title %}Hello {{app.user.username}}!{% endblock %}
 
+
+
 {% block body %}
 
     <div class="imageFond">
-        <h2>Liste des messages</h2>
-        {# Ajouter une entité Messages pour que l'abonné envoie un message via le formulaire de contact et que l'admin puisse voir les messages sur sa page d'accueil#}
+        <h2>Liste des messages</h2> 
+        <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>Objet</th>
+                <th>message</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for message in messages %}
+        <tr>
+            <td>{{ message.Nom }}</td>
+            <td>{{ message.Prenom }}</td>
+            <td>{{ message.Email }}</td>
+            <td>{{ message.Objet }}</td>
+            <td>{{ message.message|slice(0, 10) }}</td>
+            <td>
+                <a class="fa fa-trash" href="{{ path("message_delete", { id: message.id}) }}"></a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+
+       
+        </table>
     </div>
 {% endblock %}

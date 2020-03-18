@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recettes{% endblock %}
+
+{% block body %}
+<div class="imageFond">
+    <div class="container">
+        {% if bouton == "delete" %}
+        <h2>Supprimer un message</h2>
+        {% endif %}
+
+        {{ form_start(formMessage) }}
+            {{ form_row(formMessage.Nom, {attr: {disabled: bouton == "delete"}}) }}
+            {{ form_row(formMessage.Prenom, {attr: {disabled: bouton == "delete"}}) }}
+            {{ form_row(formMessage.Email, {attr: {disabled: bouton == "delete"}}) }}
+            {{ form_row(formMessage.Objet, {attr: {disabled: bouton == "delete"}}) }}
+            {{ form_row(formMessage.message, {attr: {disabled: bouton == "delete"}}) }}
+            
+            {% if bouton == "delete" %}
+            <button type="submit" class="btn btn-danger">Supprimer</button>
+            {% endif %}
+
+        {{ form_end(formMessage) }}
+    </div>
+</div>
+{% endblock %}
