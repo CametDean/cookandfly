@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+<div class="imageFond">
+    <div class="container">
+        <h2>Envoyer un message</h2>
+
+          {{ form_start(form) }}
+
+          {{ form_row(form.Nom) }}
+          {{ form_row(form.Prenom) }}
+          {{ form_row(form.Email) }}
+          {{ form_row(form.Objet) }}
+          {{ form_row(form.message) }}
+                    
+ <button type="submit" class="btn btn-success">Envoyer le message</button>
+
+           {{ form_end(form) }}
+    </div>
+</div>
+{% endblock %}

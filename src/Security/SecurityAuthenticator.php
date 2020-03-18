@@ -96,7 +96,7 @@ class SecurityAuthenticator extends AbstractFormLoginAuthenticator implements Pa
         }
 
         if ($this->security->isGranted("ROLE_ADMIN")){
-            return new RedirectResponse($this->urlGenerator->generate('recipe_show'));
+            return new RedirectResponse($this->urlGenerator->generate('message_list'));
         }else{
             return new RedirectResponse($this->urlGenerator->generate('user'));
         }
