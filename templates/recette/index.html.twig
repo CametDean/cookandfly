@@ -5,24 +5,25 @@
 {% block body %}
 <div class="content">
     <div class="imageFond">
-        <div class="titre">
-            <h2>{{recette.nom}}</h2>
-            <img src="{{dossier_images ~ recette.photo}}" class="photo_recette" alt="...">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6"><h2>{{recette.nom}}</h2></div>
+                <div class="col-md-6"><img src="{{dossier_images ~ recette.photo}}" class="photo_recette" alt="..."></div>
+            </div>
+            <div class="row justify-content-center">
+                    <p> {% set ingredients = recette.ingredients|split(";") %}
+                        {% for ingredient in ingredients %}
+                        {{ingredient}}
+                        {% endfor %}
+                        {% if recette.ingredientCle.nom is defined %}
+                        <a href="{{ path("ingredient_cle", {nom: recette.ingredientCle.nom}) }}">{{recette.ingredientCle.nom}}</a>
+                        {% endif %}
+                    </p><br><br>
+                    <p>
+                    {{recette.description|raw}}
+                    </p>
+            </div>
         </div>
-            <p>
-
-                    {% set ingredients = recette.ingredients|split(";") %}
-                    {% for ingredient in ingredients %}
-                    {{ingredient}}
-                    {% endfor %}
-              {% if recette.ingredientCle.nom is defined %}
-              <a href="{{ path("ingredient_cle", {nom: recette.ingredientCle.nom}) }}">{{recette.ingredientCle.nom}}</a>
-              {% endif %}
-            </p> <br>
-            
-            <br>
-            <p>{{recette.description|raw}}</p>
-
     </div>
 </div>
 {% endblock %}
