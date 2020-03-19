@@ -9,6 +9,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class MessageType extends AbstractType
 {
@@ -36,6 +37,7 @@ class MessageType extends AbstractType
             ->add('Email')
             ->add('Objet' , Type\TextType::class, [ "attr" => [ "placeholder" => "Objet du Message"] ])
             ->add('message' , Type\TextareaType::class, [ "required" => false, "label" => "message" ])
+            ->add('dateAdd', Type\DateType::class, [ "required" => true])
             // ->add('send', Type\SubmitType::class)
         ;
     }

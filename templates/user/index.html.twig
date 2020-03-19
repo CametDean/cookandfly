@@ -5,10 +5,10 @@
 {% block body %}
 
     <div class="imageFond">
-        <ul>
-            <li><a href="{{ path('user_update') }}">Modifier informations</a></li>
-            <li><a href="{{ path('user_recette_add') }}">Ajouter recette</a></li>
-            <li><a href="">Contacter admin</a></li>
-        </ul>
+        <div class="col-md-12 d-flex flex-column">
+            <button class="btn mt-5 btn-outline-success btn-lg btn-block"><a class="text-secondary" href="{{ path('user_update') }}">Modifier informations</a></button>
+            <button class="btn mt-5 btn-outline-success btn-lg btn-block"><a class="text-secondary" href="{{ path('user_recette_add') }}">Ajouter recette</a></button>
+            <button class="btn mt-5 btn-outline-success btn-lg btn-block"><a class="text-secondary" href="{{ path('message') }}">Contacter admin</a></button>
+        </div>
     </div>
 {% endblock %}
