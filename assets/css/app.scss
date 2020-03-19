@@ -111,9 +111,13 @@ body{
 }
 
 .back-content{
-    color: #435668;
+    color: white;
     text-align: center;
     width: 100%;
+}
+
+.back-content h2{
+    font-size: 30px;
 }
 
 .card:hover > .front{
