@@ -18,11 +18,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path("communaute") }}">Rejoignez la Communauté</a>
-                </li>
-
-                <li class="nav-item">
                     {% if not is_granted("IS_AUTHENTICATED_FULLY") %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path("communaute") }}">Rejoignez la Communauté</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path("app_register") }}">Inscription</a>
                     </li>
@@ -40,11 +39,11 @@
                             <li class="nav-item active">
                                 <a class="nav-link" href="{{ path('recipe_show') }}">Liste des recettes</a>
                             </li>
-                            {% else %}
+                        {% else %}
                             <li class="nav-item active">
                                 <a class="nav-link" href="{{ path("user") }}">Espace Abonné</a>
                             </li>
-                            {% endif %}
+                        {% endif %}
                     {% endif %}
                 </li>
 
