@@ -4,44 +4,41 @@
 
 {% block body %}
 <div class="imageFond">
-    <h2>{{ingredientCle.nom}}</h2>
-    <img src="">
-    <p>{{ingredientCle.description}}</p>
-    <br>
-    
-    <p>Notre Partenaire :<br><br>{{ingredientCle.partenaire}}</p>
-    <p>{{ingredientCle.partenaireDescription|raw}}<br><br>
-    <button type="button" class="btn btn-secondary"><a href="">Commander</a></button>
-    </p>
-    <br>
-   
-      <li class="nav-item">
-                    {% if not is_granted("IS_AUTHENTICATED_FULLY") %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path("app_register") }}">Inscription</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path("app_login") }}">Connexion</a>
-                    </li>
-                    {% endif %}
-
-                    {% if is_granted("IS_AUTHENTICATED_FULLY") %}
-                    <a class="nav-link" href="{{ path("app_logout") }}">Déconnexion</a>
-                        {% if is_granted("ROLE_ADMIN") %}
-                            <li class="nav-item active">
-                                <a class="nav-link" href="">Liste des abonnés</a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="">Liste des recettes</a>
-                            </li>
-                            {% else %}
-                            <li class="nav-item active">
-                                <a class="nav-link" href="{{ path("user") }}">Espace Abonné</a>
-                            </li>
-                            {% endif %}
-                    {% endif %}
+    <div class="container-fluid">
+        <div class="row">
+        <h2>{{ingredientCle.nom}}</h2>
+        <img src="">
+        <p>{{ingredientCle.description}}</p><br>
+        <p>Notre Partenaire :<br><br>{{ingredientCle.partenaire}}</p>
+        <p>{{ingredientCle.partenaireDescription|raw}}<br><br>
+        <button type="button" class="btn btn-secondary"><a href="">Commander</a></button></p><br>
+    </div>
+        <li class="nav-item">
+            {% if not is_granted("IS_AUTHENTICATED_FULLY") %}
+                <li class="nav-item">
+                <a class="nav-link" href="{{ path("app_register") }}">Inscription</a>
                 </li>
+                <li class="nav-item">
+                <a class="nav-link" href="{{ path("app_login") }}">Connexion</a>
+                </li>
+            {% endif %}
 
-
+            {% if is_granted("IS_AUTHENTICATED_FULLY") %}
+                <a class="nav-link" href="{{ path("app_logout") }}">Déconnexion</a>
+                {% if is_granted("ROLE_ADMIN") %}
+                <li class="nav-item active">
+                <a class="nav-link" href="">Liste des abonnés</a>
+                </li>
+                <li class="nav-item active">
+                <a class="nav-link" href="">Liste des recettes</a>
+                </li>
+                {% else %}
+                <li class="nav-item active">
+                <a class="nav-link" href="{{ path("user") }}">Espace Abonné</a>
+                </li>
+                {% endif %}
+            {% endif %}
+                </li>
+    
 </div>
 {% endblock %}
