@@ -79,6 +79,7 @@ body{
 .card{
     cursor: pointer; 
     width: 100%;
+    background-color: #333 !important;
 }
 
 .front, .back{
@@ -101,7 +102,10 @@ body{
 }
 
 .back{
-    background-color: black;
+    //background-color: rgb(97, 94, 94);
+    background: url("../../public/img/bird.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
     transform: perspective(0px) rotateY(180deg);
 }
 
