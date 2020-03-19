@@ -15,6 +15,7 @@
             {{ form_row(formMessage.Email, {attr: {disabled: bouton == "delete"}}) }}
             {{ form_row(formMessage.Objet, {attr: {disabled: bouton == "delete"}}) }}
             {{ form_row(formMessage.message, {attr: {disabled: bouton == "delete"}}) }}
+            {{ form_row(formMessage.dateAdd, {attr: {disabled: bouton == "delete"}}) }}
             
             {% if bouton == "delete" %}
             <button type="submit" class="btn btn-danger">Supprimer</button>

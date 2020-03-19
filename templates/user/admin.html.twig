@@ -16,6 +16,7 @@
                 <th>Email</th>
                 <th>Objet</th>
                 <th>message</th>
+                <th>dateAdd</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -26,7 +27,8 @@
             <td>{{ message.Prenom }}</td>
             <td>{{ message.Email }}</td>
             <td>{{ message.Objet }}</td>
-            <td>{{ message.message|slice(0, 10) }}</td>
+            <td>{{ message.message|slice(0, 30) }}</td>
+            <td>{{ message.dateAdd|date("d/m/Y") }}</td>            
             <td>
                 <a class="fa fa-trash" href="{{ path("message_delete", { id: message.id}) }}"></a>
             </td>
