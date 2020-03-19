@@ -15,7 +15,7 @@ class MessageController extends AbstractController
 {
     /**
      * @Route("/message", name="message")
-     * * @IsGranted("ROLE_ADMIN")
+     *
      */
     public function index(Request $request)
     {
