@@ -14,4 +14,15 @@ require("bootstrap")
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 // import $ from 'jquery';
 
-console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
+var mesElements = document.querySelectorAll("li.nav-item");
+mesElements.forEach(function(element){
+    element.addEventListener("mouseenter", function(event){
+        element.style.backgroundColor = "green";
+    }, false);
+
+    element.addEventListener("mouseleave", function(event){
+        element.style.backgroundColor = "#333";
+    }, false);
+
+});
+
