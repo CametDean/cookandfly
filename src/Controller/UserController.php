@@ -11,15 +11,23 @@ use App\Form\UserType;
 use App\Form\RecetteType;
 use App\Entity\Recette;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use App\Repository\RecetteRepository;
+
 
 class UserController extends AbstractController
 {
     /**
      * @Route("/profile/user", name="user")
      */
-    public function index(UserRepository $ur)
+    public function index(UserRepository $ur, Request $rq, RecetteRepository $rr)
     {
-        $user = $this->getUser();
+        if($rq->isMethod("POST")){
+            $nomRecette = $rq->request->get("search");
+            $recettes = $rr->findByName($nomRecette);
+            return $this->render('continent/index.html.twig', compact("recettes"));
+        } else{
+            $user = $this->getUser();
+        }
         return $this->render('user/index.html.twig', [
             'controller_name' => 'UserController',
         ]);

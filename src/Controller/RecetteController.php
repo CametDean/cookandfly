@@ -9,16 +9,30 @@ use Doctrine\ORM\EntityManagerInterface as EMI;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use App\Form\RecetteType;
+use App\Repository\CommentaireRepository;
+use App\Form\CommentaireType;
+use App\Entity\Commentaire;
 
 class RecetteController extends AbstractController
 {
     /**
      * @Route("/recette/{id}", name="affichage_recette", requirements={"id"="\d+"})
      */
-    public function affichageRecettes(RecetteRepository $rr, $id)
+    public function affichageRecettes(RecetteRepository $rr, CommentaireRepository $cr, Request $rq, EMI $em, $id)
     {  
-        $recette = $rr->findOneBy(["id" => $id]);   
-        return $this->render('recette/index.html.twig', compact("recette"));
+        $recette = $rr->findOneBy(["id" => $id]);
+        $user = $this->getUser();
+        $commentaires = $recette->getCommentaire();  
+
+        if($rq->isMethod("POST")){
+            $comment = $rq->request->get('description'); 
+            $date = new \DateTime;
+            $newComment = (new Commentaire)->setAbonne($user)->setDate($date)->setDescription($comment)->setRecette($recette);
+            $em->persist($newComment);
+            $em->flush(); 
+        }
+
+        return $this->render('recette/index.html.twig', compact("recette", "commentaires"));
     }
     
     /**
@@ -83,4 +97,5 @@ class RecetteController extends AbstractController
         return $this->render('recette/formulaire.html.twig', compact("formRecette", "bouton"));
 
     }
+
 }

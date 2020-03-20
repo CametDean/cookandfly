@@ -7,23 +7,56 @@
     <div class="imageFond">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-6"><h2>{{recette.nom}}</h2></div>
-                <div class="justify-content-center"><img src="{{dossier_images ~ recette.photo}}" class="photo_recette" alt="..."></div>
+                <div class="col-md-6">
+                    <h2>{{recette.nom}}</h2>
+                </div>
+                <div class="justify-content-center"><img src="{{dossier_images ~ recette.photo}}" class="photo_recette"
+                        alt="..."></div>
             </div>
             <div class="row justify-content-center">
-                    <p> {% set ingredients = recette.ingredients|split(";") %}
-                        {% for ingredient in ingredients %}
-                        {{ingredient}}
-                        {% endfor %}
-                        {% if recette.ingredientCle.nom is defined %}
-                        <a href="{{ path("ingredient_cle", {nom: recette.ingredientCle.nom}) }}">{{recette.ingredientCle.nom}}</a>
-                        {% endif %}
-                    </p><br><br>
-                    <p>
-                    {{recette.description|raw}}
-                    </p>
+                <p> {% set ingredients = recette.ingredients|split(";") %}
+                    {% for ingredient in ingredients %}
+                    {{ingredient}}
+                    {% endfor %}
+                    {% if recette.ingredientCle.nom is defined %}
+                    <a
+                        href="{{ path("ingredient_cle", {nom: recette.ingredientCle.nom}) }}">{{recette.ingredientCle.nom}}</a>
+                    {% endif %}
+                </p><br><br>
+                <p>
+                    {% set description = recette.description|split(";") %}
+                    {% for desc in description %}
+                    {{desc}}<br>
+                    {% endfor %}
+                </p>
             </div>
         </div>
+
+        <div class="d-flex flex-column align-items-center">
+            <div class="col-md-8 d-flex flex-column mt-5 shadow p-3 mb-5 bg-white rounded">
+                <h3 class="text-center">Liste des commentaires</h3>
+                {% for commentaire in commentaires %}
+                    <div class="comment">
+                        <h4 class="mt-5 text-primary">{{commentaire.abonne.username}}</h4>
+                        {{commentaire.date|date("d/m/Y")}}
+                        {{commentaire.description}}
+                    </div>
+                {% endfor %}
+            </div>
+            <br><br>
+
+            {% if is_granted("IS_AUTHENTICATED_FULLY") %}
+            <form class="col-md-6 text-center" method="post">
+                <div class="form-group">
+                    <label for="description">Commentaire</label>
+                    <input type="text" class="form-control" id="description" name="description">
+                </div>
+                <button type="submit" class="btn btn-success">Publier</button>
+            </form>
+            {% endif %}
+        </div>
+
+
     </div>
 </div>
 {% endblock %}
