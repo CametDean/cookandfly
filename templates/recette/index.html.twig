@@ -34,9 +34,10 @@
 
         <div class="d-flex flex-column align-items-center">
             <div class="col-md-8 d-flex flex-column mt-5 shadow p-3 mb-5 bg-white rounded">
+                <h3 class="text-center">Liste des commentaires</h3>
                 {% for commentaire in commentaires %}
                     <div class="comment">
-                        <h4 class="text-primary">{{commentaire.abonne.username}}</h4>
+                        <h4 class="mt-5 text-primary">{{commentaire.abonne.username}}</h4>
                         {{commentaire.date|date("d/m/Y")}}
                         {{commentaire.description}}
                     </div>
