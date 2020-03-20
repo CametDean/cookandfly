@@ -21,7 +21,7 @@ mesElements.forEach(function(element){
     }, false);
 
     element.addEventListener("mouseleave", function(event){
-        element.style.backgroundColor = "#333";
+        element.style.backgroundColor = "#343a40";
     }, false);
 
 });
