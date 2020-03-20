@@ -212,3 +212,28 @@ a{
 .hide{
     display: none;
 }
+
+.continent.nom{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background: red;
+  }
+
+  
+//Animer les noms des continents dans les pages continents :
+
+.ml16 {
+    color: #402d2d;
+    padding: 40px 0;
+    font-weight: 800;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+    overflow: hidden;
+  }
+  
+  .ml16 .letter {
+    display: inline-block;
+    line-height: 1em;
+  }
