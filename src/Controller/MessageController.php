@@ -27,6 +27,8 @@ class MessageController extends AbstractController
         if($request->isMethod('POST') && $form->handleRequest($request)->isValid()){
             $em->persist($message);
             $em->flush();
+            $this->addFlash("success", "Votre message a bien été envoyé");
+            return $this->redirectToRoute("user");
         }
         
         return $this->render('message/index.html.twig', [

@@ -14,4 +14,35 @@ require("bootstrap")
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 // import $ from 'jquery';
 
-console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
+var mesElements = document.querySelectorAll("li.nav-item");
+mesElements.forEach(function(element){
+    element.addEventListener("mouseenter", function(event){
+        element.style.backgroundColor = "green";
+    }, false);
+
+    element.addEventListener("mouseleave", function(event){
+        element.style.backgroundColor = "#343a40";
+    }, false);
+
+});
+
+
+//Animer le nom des continents pages continents & le nom des recettes
+
+  var textWrapper = document.querySelector('.ml16');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml16 .letter',
+    translateY: [-100,0],
+    easing: "easeOutExpo",
+    duration: 1400,
+    delay: (el, i) => 30 * i
+  }).add({
+    targets: '.ml16',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });

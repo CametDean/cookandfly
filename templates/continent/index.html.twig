@@ -15,28 +15,22 @@
 {% if recettes is defined %}
     <div class="content">
         <h1>Votre recherche</h1>
-            <div class="d-flex align-content-start flex-wrap">
-                {% for recette in recettes %}
-                        <div class="card_recette" style="width: 18rem;">
-                            <img src="{{dossier_images ~ recette.photo}}" class="img-fluid" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">{{recette.nom}}</h5>
-                                <a href="{{ path("affichage_recette", {id: recette.id}) }}" class="btn btn-primary">En savoir plus</a>
-                            </div>
-                        </div>
-                {% endfor %}
-            </div>
-    </div>
+            
+            
 {% else %}
     <div class="content">
-        <h1>{{continent.nom}}</h1><br>
+        <h1 class="ml16">{{continent.nom}}</h1><br>
+       
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+
         <div class="d-flex align-content-start flex-wrap">
             {% for recette in continent.recettes %}
                 <div class="card_recette" style="width: 18rem;">
                     <img src="{{dossier_images ~ recette.photo}}" class="img-fluid"  alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{recette.nom}}</h5>
-                        <button type="button" class="btn btn-secondary"><a href="{{ path("affichage_recette", {id: recette.id}) }}">En savoir plus</a></button>
+                        <button type="button" class="btn btn-secondary"><a href="{{ path("affichage_recette", {id: recette.id}) }}"> En savoir plus</a></button>
                     </div>
                 </div>
             {% endfor %}
