@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="imageFond">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Message</th>
+                <th scope="col" colspan=2 >Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+                <th scope="row">{{ message.Nom }}</th>
+                <td>{{ message.message }}</td>
+                <td>
+                    <a href="{{ path("message_list", { id: message.id }) }}">
+                        <i class="fa fa-pen"></i>
+                    </a>
+                </td>
+                <td>
+                    <a href="{{ path("message_delete", { id: message.id }) }}">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}
