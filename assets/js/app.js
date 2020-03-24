@@ -29,7 +29,7 @@ mesElements.forEach(function(element){
 
 //Animer le nom des continents pages continents & le nom des recettes
 
-  var textWrapper = document.querySelector('.ml16');
+var textWrapper = document.querySelector('.ml16');
 textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 
 anime.timeline({loop: true})
