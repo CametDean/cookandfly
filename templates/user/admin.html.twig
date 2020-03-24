@@ -17,7 +17,7 @@
                 <th>Objet</th>
                 <th>Message</th>
                 <th>Date</th>
-                <th>Actions</th>
+                <th colspan=2>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -32,10 +32,17 @@
             <td>
                 <a class="fa fa-trash" href="{{ path("message_delete", { id: message.id}) }}"></a>
             </td>
+             <td>
+                    <a href="{{ path("message_show", { id: message.id }) }}">
+                        <i class="fa fa-envelope"></i>
+                    </a>
+            </td>
         </tr>
         {% endfor %}
         </tbody>
         </table>
+
+        
 
         <h2>Liste des commentaires</h2> 
         <table class="table table-bordered">

@@ -75,6 +75,18 @@ class MessageController extends AbstractController
 
     }
 
+     /**
+     * @Route("/admin/message/{id}", name="message_show",  requirements={"id"="\d+"})
+     * @IsGranted("ROLE_ADMIN")
+     */
+    public function show(MessageRepository $mr, Request $request ,EMI $em, int $id)
+    {
+        $message = $mr->find($id);
+
+        return $this->render('message/listeMessages.html.twig', compact("message"));
+
+    }
+
     /**
      * @Route("/admin/commentaire/supprimer/{id}", name="comment_delete")
      * @IsGranted("ROLE_ADMIN")
