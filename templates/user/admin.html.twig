@@ -41,6 +41,7 @@
         <table class="table table-bordered">
         <thead class="thead-dark">
             <tr>
+                <th>Recette</th>
                 <th>Pseudo</th>
                 <th>Commentaire</th>
                 <th>Actions</th>
@@ -49,6 +50,7 @@
         <tbody>
         {% for commentaire in commentaires %}
         <tr>
+            <td>{{ commentaire.recette.nom }}</td>
             <td>{{ commentaire.abonne.username }}</td>
             <td>{{ commentaire.description }}</td>           
             <td>
